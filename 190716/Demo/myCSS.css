@@ -1,0 +1,67 @@
+body {
+  /* 使用 padding 切出空間 */
+  padding-left: 11em;
+  font: italic 1.2em "Fira Sans", serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: purple;
+  background-color: #d8da3d;
+}
+
+ul.navbar {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  /* 固定在畫面左邊 */
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  width: 9em;
+}
+ul.navbar li {
+  position: relative;
+  text-align: center;
+  background: white;
+  margin: 0.5em 0;
+  padding: 0.3em;
+  box-shadow: 5px 5px 5px black;
+}
+ul.navbar li:hover {
+  text-align: center;
+  top: -3px;
+  left: -3px;
+  box-shadow: 2px 2px 5px black;
+}
+
+ul.navbar a {
+  text-decoration: none;
+}
+a:link {
+  color: blue;
+}
+a:hover {
+  background-color: rgb(136, 255, 0);
+}
+
+h1 {
+  position: relative;
+  font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif;
+  animation: rollingHeader linear 100ms infinite; 
+}
+
+address {
+  margin-top: 1em;
+  padding-top: 1em;
+  border-top: 0.1em dotted blue;
+}
+
+@keyframes rollingHeader{
+  0%{
+    left: 0;
+  }
+  50%{
+    left: 600px;
+  }
+  100%{
+    left: 0;
+  }
+}
