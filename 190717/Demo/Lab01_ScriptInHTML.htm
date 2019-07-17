@@ -1,12 +1,24 @@
 ﻿<html>
-<head>
+  <head>
     <title>第一個JavaScript</title>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
 
     <script type="text/javascript">
-	    document.write("JavaScript is running!");
+      document.write("JavaScript is running!<br>");
+      var max = 10;
+      var center = function(cnt) {
+        return cnt * 2 - 1;
+      };
+      for (let i = 0; i < max; i++) {
+        for (let j = max; j > i; j--) {
+          document.write("!");
+        }
+        for (let j = 0; j < center(i); j++) {
+          document.write("*");
+        }
+        document.write("<br>");
+      }
     </script>
-</head>
-<body>
-</body>
+  </head>
+  <body></body>
 </html>
