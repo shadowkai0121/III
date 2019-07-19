@@ -1,0 +1,34 @@
+.box {
+  position: fixed;
+  top: -200px;
+  left: 30%;
+  width: 450px;
+  background-color: #fff;
+  font-size: 1.5em;
+  color: #7f7f7f;
+  padding: 20px;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  box-shadow: 0 1px 5px #333;
+  z-index: 101;
+  transition: all 3s ease-out;
+}
+
+.box h1 {
+  border-bottom: 1px dashed #7f7f7f;
+  margin: -20px -20px 0px -20px;
+  padding: 10px;
+  background-color: #ffefef;
+  color: #ef7777;
+  border-radius: 20px;
+}
+
+.boxclose {
+  float: right;
+  width: 26px;
+  height: 26px;
+  background: transparent url(images/cancel.png) repeat top left;
+  margin-top: -30px;
+  margin-right: -30px;
+  cursor: pointer;
+}

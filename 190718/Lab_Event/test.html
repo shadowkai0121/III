@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      console.log("start");
+      function greet(name) {
+        var greet1 = function() {
+          return "Hello, " + name + ".<br>";
+        };
+        var greet2 = "How are you?<br>";
+        return function() {
+          console.log(greet1 + greet2);
+        };
+      }
+      console.log("loaded");
+      greet("kai");
+    </script>
+  </body>
+</html>
