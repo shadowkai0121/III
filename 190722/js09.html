@@ -1,0 +1,39 @@
+Year: <input id="year" type="text">
+<input type="button" value="是否閏年" onclick="check()">
+<input type="text" id="display" disabled>
+
+<script>
+
+    function check() {
+        let year = document.getElementById("year").value;
+        year = parseInt(year);
+
+        let isLeap;
+
+        if (!year) {
+            display.value = "請輸入數字";
+            return;
+        }
+
+        if (year % 4 === 0) {
+            if (year % 100 === 0 && year % 400 !== 0) {
+                isLeap = false;
+            }
+            else {
+                isLeap = true;
+            }
+        }
+        else {
+            isLeap = false;
+        }
+
+        // 三元運算子 boolean ? yes : no;
+        display.value = isLeap ? "閏年" : "平年";
+    }
+
+</script>
+<hr>
+
+<script>
+
+</script>

@@ -1,0 +1,19 @@
+<script>
+
+    // 字串以 ASCII Code 比對
+    compare("1", "3"); // xx
+    compare("4", "3"); // ok
+    compare("Andy", "Brad"); // xx
+    compare("a", "A"); // ok a: 97, A: 65;
+
+    function compare(x, y) {
+        if (x > y) {
+            document.write("ok");
+        }
+        else {
+            document.write("xx");
+        }
+
+        document.write("<br>");
+    }
+</script>

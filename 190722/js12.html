@@ -1,0 +1,49 @@
+<script>
+    let x = 10,
+        y = 3;
+
+    // 10 >= 10, 10-- && 3 <= 3, 3++
+    // output: OO: x=9, y=4
+    // if (x-- >= 10 && y++ <= 3) {
+    //     document.write(`OO: x=${x}, y=${y}`);
+    // }
+    // else {
+    //     document.write(`XX: x=${x}, y=${y}`);
+    // }
+
+    document.write("<br>");
+
+    // 10 >= 10, 10-- => true
+    // y++ 不會執行
+    if (x-- >= 10 || y++ <= 3) {
+        document.write(`OO: x=${x}, y=${y}`);
+    }
+    else {
+        document.write(`XX: x=${x}, y=${y}`);
+    }
+</script>
+
+<hr>
+
+<script>
+    // 利用二進位運算進到後面的計算
+
+    let a = 10, b = 3;
+    // if (a-- >= 10 | ++y <= 3) {
+    //     document.write(`OO: x=${a}, y=${b}`);
+    // }
+    // else {
+    //     document.write(`XX: x=${b}, y=${b}`);
+    // }
+
+    document.write("<hr>");
+
+    if (--a >= 10 & ++b <= 3) {
+        document.write(`OO: x=${a}, y=${b}`);
+    }
+    else {
+        document.write(`XX: x=${a}, y=${b}`);
+    }
+
+
+</script>

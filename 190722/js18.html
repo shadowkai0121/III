@@ -1,0 +1,54 @@
+<script>
+
+    (function () {
+        let num1, num2, num3, num4, num5, num6;
+        num1 = num2 = num3 = num4 = num5 = num6 = 0;
+
+        for (let i = 0; i < 100; i++) {
+            let dice = Math.floor(Math.random() * 6 + 1);
+            switch (dice) {
+                case 1: num1++; break;
+                case 2: num2++; break;
+                case 3: num3++; break;
+                case 4: num4++; break;
+                case 5: num5++; break;
+                case 6: num6++; break;
+                default: break;
+            }
+        }
+
+        console.log(`1=${num1}, 2=${num2}, 3=${num3}, 4=${num4}, 5=${num5}, 6=${num6}`);
+
+    }());
+
+</script>
+
+<script>
+
+    (function () {
+        let nums = [0, 1, 2, 3];
+
+        nums[0] = 123;
+        nums[1] = "kai";
+        nums[4] = true;
+
+        document.write(nums[1] + "<br>");
+        // nums[4]已經被設定 lenth = 5
+        document.write(nums.length + "<br>");
+
+        nums = [0, 0, 0, 0, 0, 0];
+
+        let cheating = [0, 1, 2, 3, 4, 5, 3, 4, 5];
+        // 如何讓 4 5 6 出現機率變兩倍        
+        for (let i = 0; i < 100; i++) {
+            let dice = Math.floor(Math.random() * 9);
+
+            nums[cheating[dice]] += 1;
+        }
+
+        for (let i = 0; i < nums.length; i++) {
+            document.write(`${i + 1}點 = ${nums[i]}<br>`);
+        }
+    }())
+
+</script>

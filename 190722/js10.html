@@ -1,0 +1,52 @@
+<input id="val1" type="text">
+<select name="" id="operator">
+    <option value="+">＋</option>
+    <option value="-">－</option>
+    <option value="*">╳</option>
+    <option value="/">／</option>
+</select>
+<input id="val2" type="text">
+<input type="button" value="=" onclick="cal()">
+<input id="display" type="text" disabled>
+
+<script>
+    function cal() {
+        let x = parseInt(document.getElementById("val1").value),
+            y = parseInt(document.getElementById("val2").value),
+            show = document.getElementById("display"),
+            operator = document.getElementById("operator").value,
+            res = 0;
+
+        if (!x || !y) {
+            show.value = "請輸入數字";
+            return;
+        }
+
+        switch (operator) {
+            case "+":
+                res = x + y;
+                show.value = `${x} + ${y} = ${res}`;
+                break;
+
+            case "-":
+                res = x - y;
+                show.value = `${x} - ${y} = ${res}`;
+                break;
+
+            case "*":
+                res = x * y;
+                show.value = `${x} * ${y} = ${res}`;
+                break;
+
+            case "/":
+                let remain = parseInt(x / y);
+                let mod = x % y;
+                show.value = `${x} / ${y} = ${remain} …… ${mod}`;
+                break;
+
+            default:
+                throw "資料有問題。";
+        }
+
+    }
+</script>
