@@ -1,0 +1,87 @@
+<script>
+
+    // 變數宣告
+    // JS 本身是「弱型別」程式語言
+    // 宣告只是用來表達變數的生命週期
+
+    // 寬鬆寫法
+    var varExample;
+
+    // ES6
+    // 嚴謹
+    let var1;
+    document.write(var1 + ":" + typeof (var1) + "<br>");
+    // output: undefined:undefined
+    // 弱型別需要特別注意 undefined !
+
+    // 使用 typeof 檢查型別
+    // 全等比較時會用到
+    var1 = 123;
+    document.write(var1 + ":" + typeof (var1) + "<br>");
+    // output: 123:number
+
+    var1 = 12.3;
+    document.write(var1 + ":" + typeof (var1) + "<br>");
+    // output 12.3:number
+    // 整數與浮點數都叫 number
+
+    var1 = "123";
+    document.write(var1 + ":" + typeof (var1) + "<br>");
+    // output: 123:string
+
+    var1 = true;
+    document.write(var1 + ":" + typeof (var1) + "<br>");
+    // output: true:boolean
+
+    // 弱型別 = 給甚麼值就裝甚麼值
+
+    // document.write(var2 + "<br>");
+    // error: var2 not defined
+    // 可以沒有宣告但是要有初始化 (給值) 的動作
+
+    // 宣告時給值
+    let a123 = 123;
+    document.write(a123);
+
+    // let 3abc = 123;
+    // let @abc = 123;
+    // error: unexcepted token
+
+    let $abc = 123;
+    document.write($abc);
+
+    let _abc = 123;
+    document.write(_abc);
+
+    // 命名規範
+    // [a-zA-Z$_][a-zA-Z0-9$_]*
+
+    let $_$ = 123;
+    document.write($_$);
+
+    document.write("<hr>");
+
+    // const name;
+    // document.write(name);
+    // error: Missing initializer
+    // 常數必須要有初始化
+</script>
+
+<hr>
+
+<script>
+    // 一段 script 是一個單元，分段處理可以避免一次全部炸掉
+    // const name;
+
+    const name = "kai";
+    document.write("My name is " + name + ".<br>");
+    // 字串相加
+
+    document.write(`My name is ${name}.<br>`);
+    // 變數置換需要使用 ``
+
+    let a = 10, b = 3;
+    document.write(`${a} + ${b} = ${a + b}`);
+
+
+</script>
