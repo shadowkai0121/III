@@ -1,0 +1,21 @@
+<!-- 預設 type="text" -->
+<!-- 就算改 type="number" 被 js 取值還是 string ... -->
+<input id="val1" type="text">
++
+<input id="val2" type="text">
+<input type="button" value="=" onclick="add()">
+<input id="display" type="text" disabled>
+
+<script>
+    function add() {
+        // display.value = 
+        //      parseInt(val1.value) + parseInt(val2.value);
+
+        // 區域變數
+        let x = parseInt(document.getElementById("val1").value);
+        let y = parseInt(document.getElementById("val2").value);
+        let show = document.getElementById("display");
+
+        show.value = x + y;
+    }
+</script>
