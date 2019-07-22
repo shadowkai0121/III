@@ -1,0 +1,30 @@
+<script>
+
+    let year = prompt("年分");
+
+    // 大多數會落在 if 內判斷
+    if (year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)) {
+        document.write("閏年")
+    }
+    else {
+        document.write("非閏年");
+    }
+
+    document.write("<hr>");
+
+    // 先排除掉大多數的年份
+    if (year % 4 === 0) {
+
+        if (year % 100 === 0 && year % 400 !== 0) {
+            document.write("非閏年");
+        }
+        else {
+            document.write("閏年");
+        }
+
+    }
+    else {
+        document.write("非閏年");
+    }
+
+</script>

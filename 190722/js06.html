@@ -1,0 +1,87 @@
+<script>
+    (function () {
+        // let score = prompt("Score is ");
+
+        // random return 0 <= rnd < 1
+        // 0 ~ 100, (100 - 0) + 1 = 101 (個數字)
+        const rangeMin = 0;
+        const rangeMax = 100;
+        // 40 ~ 69
+        // 30 ~ -30;
+        let score = Math.floor(
+            Math.random() * (rangeMax - rangeMin) + rangeMin
+        );
+
+        const okLine = 60;
+
+        document.write(score);
+        document.write("<hr>");
+
+        if (score >= okLine) {
+            document.write("pass");
+        }
+        else {
+            document.write("fail");
+        }
+
+        document.write("<br>");
+
+        // if = 一個敘述句
+        // else if 是巢狀的變形敘述句
+        if (score >= 60) {
+
+            if (score >= 70) {
+
+                if (score >= 80) {
+
+                    if (score >= 90) {
+                        document.write("A");
+                    }
+                    else {
+                        document.write("B");
+                    }
+
+                }
+                else {
+                    document.write("C");
+                }
+
+            }
+            else {
+                document.write("D");
+            }
+
+        }
+        else {
+            document.write("E");
+        }
+
+        document.write("<br>");
+
+        // 防火牆規則撰寫
+        if (score < 60) {
+            document.write("E");
+        }
+        else if (score < 70) {
+            document.write("D");
+        }
+        else if (score < 80) {
+            document.write("C");
+            // 區塊執行完就結束，不會再跑一次判斷。
+            score = 57;
+        }
+        else if (score < 90) {
+            document.write("B");
+        }
+        else {
+            document.write("A");
+        }
+
+        document.write("<br>");
+        document.write(score);
+
+        document.write("<hr>");
+
+        document.write("end");
+    }())
+</script>
