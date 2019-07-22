@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-widtkh, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
+
+</head>
+
+<body>
+    <div id="app1" :style="styleList">
+        {{message}}
+    </div>
+
+    <div id="app2" :title="message" :style="styleList">
+        <input type="text" v-model="text" name="" id=""><br>
+        {{ text }}<br>
+        <button @click="reverse">reverse!</button>
+    </div>
+
+    <div id="app3" v-if="seen" :style="styleList">
+        You can see me
+    </div>
+
+    <div id="app4" :style="styleList">
+        <ul>
+            <li v-for="(item, index) in todoList" :key="index">
+                {{index}}: {{item.text}}
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var style = {
+            fontFamily: "sans-serif",
+            fontSize: "1.25em",
+            border: "1px solid gray",
+            padding: "20px",
+            margin: "20px",
+        }
+
+        var app1 = new Vue({
+            el: "#app1",
+            data: {
+                message: "Hello, Vue",
+                styleList: {
+                    fontFamily: "sans-serif",
+                    fontSize: "1.25em",
+                    border: "1px solid gray",
+                    padding: "20px",
+                    margin: "20px",
+                    bakckgroundColor: "white",
+                    transition: "all linear 1s"
+                }
+            }
+        });
+
+        var app2 = new Vue({
+            el: "#app2",
+            data: {
+                message: "Hello, Vue!",
+                text: "Mouse on here or click!",
+                styleList: style
+            },
+            methods: {
+                reverse() {
+                    this.text = this.text.split("").reverse().join("");
+                }
+            },
+        })
+
+        var app3 = new Vue({
+            el: "#app3",
+            data: {
+                seen: true,
+                styleList: style
+            }
+        })
+
+        var app4 = new Vue({
+            el: "#app4",
+            data: {
+                styleList: style,
+                todoList: [
+                    { text: "Hello" },
+                ]
+            }
+        })
+
+        setInterval(() => {
+            app1.message = Date();
+            app2.message = Date();
+            app1.styleList.backgroundColor = "rgb(" + Math.random() * 255 + ", " + Math.random() + ", " + Math.random() + ")";
+
+            if (app3.seen) {
+                app3.seen = false;
+            }
+            else {
+                app3.seen = true;
+            }
+            let arr = []
+            let item = { text: "" };
+
+            for (let i = 0; i < Math.random() * 10; i++) {
+                item.text = Math.random() * 100000;
+                arr.push(item)
+            }
+
+            app4.todoList = arr;
+        }, 1000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+{
+    "phpformatter.phpPath": "c:\\xampp\\php\\php.exe",
+    "php-cs-fixer.formatHtml": true,
+    "php-cs-fixer.onsave": true,
+    "php-cs-fixer.rules": "@psr2",
+    "php-cs-fixer.autoFixByBracket": true,
+    "php-cs-fixer.autoFixBySemicolon": false,
+    "php.validate.enable": false,
+    "php.executablePath": "c:\\xampp\\php\\php.exe",
+    "phpfmt.php_bin": "c:\\xampp\\php\\php.exe"
+}
