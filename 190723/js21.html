@@ -1,0 +1,61 @@
+<script src="../tool.js"></script>
+<script>
+    (function () {
+
+        commutation("多維陣列");
+        // index 在記憶體中實作代表偏移量 (offset)
+        // => 記憶體是線性的
+        // => 陣列不適合使用空間的觀念
+        // => 用一維看待多維
+
+        // 樹狀表示法
+        //   +--[0]--+--[0]
+        //   |       |
+        //   |       +--[1]
+        //   |
+        // a-+--[1]--+--[0]
+        //   |       |
+        //   |       +--[1]
+        //   |
+        //   +--[2]
+
+        let a = [];
+        a[0] = [];
+
+        document.write(a instanceof Array);
+        commutation();
+
+        document.write(a[0] instanceof Array);
+        commutation();
+
+        a[1] = [];
+        a[0][0] = 123;
+        a[0][1] = 100;
+        a[1][0] = 12;
+        a[2] = 34;
+
+        //     +--[0]--+--[0] = 123
+        //     |       |
+        //     |       +--[1] = 100
+        //     |
+        // a --+--[1]--+--[0] = 12
+        //     |
+        //     +--[2] = 34
+
+        document.write("-查詢多維陣列-<br>");
+        for (let i in a) {
+            if (a[i] instanceof Array) {
+                for (let j in a[i]) {
+                    document.write(a[i][j]);
+                    commutation();
+                }
+            }
+            else {
+                document.write(a[i]);
+                commutation();
+            }
+            document.write("===");
+            commutation();
+        }
+    }());
+</script>

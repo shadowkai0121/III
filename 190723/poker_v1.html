@@ -1,0 +1,41 @@
+<script src="../tool.js"></script>
+<!-- 菜鳥版！ -->
+<script>
+    // 花色、洗牌、發牌
+    // 四個玩家手上各十三張
+
+    let poker = [];
+
+    // 洗牌
+    for (let i = 0; i < 52; i++) {
+        // 0 ~ 51
+        let card = parseInt(Math.random() * 52);
+
+        // 加入檢查機制
+        let isRepeat = false;
+        for (let j = 0; j < i; j++) {
+            if (card === poker[j]) {
+                // 重複了
+                isRepeat = true;
+                break;
+            }
+        }
+
+        if (!isRepeat) {
+            poker[i] = card;
+        }
+        else {
+            // 重來一次
+            i--;
+        }
+    }
+
+    // 驗算
+    for (let i in poker) {
+        document.write(poker[i]);
+        commutation();
+    }
+    // 有機率重複
+
+
+</script>

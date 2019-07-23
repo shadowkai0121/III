@@ -38,16 +38,17 @@
 
         nums = [0, 0, 0, 0, 0, 0];
 
-        let cheating = [0, 1, 2, 3, 4, 5, 3, 4, 5];
         // 如何讓 4 5 6 出現機率變兩倍        
+        // let cheating = [0, 1, 2, 3, 4, 5, 3, 4, 5];
         for (let i = 0; i < 100; i++) {
             let dice = Math.floor(Math.random() * 9);
-
-            nums[cheating[dice]] += 1;
+            // nums[cheating[dice]] += 1;
+            nums[dice > 3 ? dice - 3 : dice] += 1;
         }
 
         for (let i = 0; i < nums.length; i++) {
-            document.write(`${i + 1}點 = ${nums[i]}<br>`);
+            // document.write(`${i + 1}點 = ${nums[i]}<br>`);
+            document.write(`${i + 1} 點 = ${nums[i]}<br>`);
         }
     }())
 

@@ -1,0 +1,99 @@
+<script src="../tool.js"></script>
+<script>
+    (function () {
+
+        let a = [];
+        let b = [1, 2, 3, 4];
+
+        // 不建議使用以下方式，容易混淆。
+        let c = new Array();
+        let d = new Array(7); // 宣告陣列大小
+        let e = new Array(1, 2, 3, 4); // 宣告陣列內容
+
+        document.write(typeof a); // object
+
+        document.write("<br>");
+
+        // 是不是 Array 的物件實體？
+        document.write(a instanceof Array) // true
+
+        document.write("<br>");
+        document.write(a instanceof Date) // false
+
+        document.write("<br>");
+
+        document.write(a.length);
+        document.write("<br>");
+
+        document.write(b.length);
+        document.write("<br>");
+
+        document.write(c.length);
+        document.write("<br>");
+
+        document.write(d.length);
+        document.write("<br>");
+
+        document.write(e.length);
+        document.write("<br>");
+
+    }());
+</script>
+
+<hr>
+<hr>
+
+<script>
+    (function () {
+
+        let a = [];
+
+        a.push(1); a.push(12); a.push(123);
+        document.write(a.length + "<hr>");
+
+        for (let i = 0; i < a.length; i++) {
+            document.write(a[i] + "<br>");
+        }
+
+        document.write("<hr>");
+
+        // index 可以是有意義的資料被單獨設定
+        a[7] = 2000;
+        document.write(a.length + "<br>");
+        document.write("<hr>");
+
+        for (let i = 0; i < a.length; i++) {
+            document.write(a[i] + "<br>");
+        }
+
+        document.write("<hr>");
+
+        // 跳過 undefined
+        for (let i in a) {
+            document.write(a[i] + "<br>");
+        }
+        commutation();
+
+        document.write(a.toString());
+        commutation();
+
+        // FILO
+        // 被取出的元素會直接被刪除 => 改變陣列長度
+        document.write("pop:" + a.pop());
+        commutation();
+
+        for (let i in a) {
+            document.write(a[i]);
+            commutation();
+        }
+
+        // delete 只將元素內容替換成 undefined => 不改變陣列長度
+        commutation("hr");
+        delete a[0];
+        for (let i = 0; i < a.length; i++) {
+            document.write(a[i]);
+            commutation();
+        }
+
+    }());
+</script>

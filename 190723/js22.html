@@ -1,0 +1,18 @@
+<script src="../tool.js"></script>
+<script>
+    commutation("while");
+
+    let a = 1;
+    // 會先執行才判斷條件是否符合 => 至少執行一次
+    // 後測式迴圈
+    do {
+        a++;
+        document.write(a);
+        commutation();
+    } while (a < 10);
+    commutation();
+
+    document.write(a); // 最終為 10;
+    commutation();
+
+</script>
