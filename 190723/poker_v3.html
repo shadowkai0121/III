@@ -6,7 +6,9 @@
 
     // 建表
     for (let i = 0; i < 52; i++) {
-        poker[i] = i;
+        let kind = ['&spades;', '&hearts;', '&diams;', '&clubs;'];
+        let nums = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
+        poker[i] = kind[parseInt(i / 13)] + nums[i % 13];
     }
 
     // 洗牌
@@ -38,13 +40,18 @@
     <script>
         commutation("輸出畫面");
 
-        for (let i in players) {
+        for (let player of players) {
+            player.sort();
             document.write("<tr>");
-            document.write(`<th>${parseInt(i) + 1} 號玩家</th>`);
 
-            for (let value of players[i]) {
-                document.write("<td>");
-                document.write(value);
+            for (let card of player) {
+                if (card.indexOf('hearts') !== -1 || card.indexOf('diams') !== -1) {
+                    document.write('<td style="color: red;">');
+                }
+                else {
+                    document.write('<td>');
+                }
+                document.write(card);
                 document.write("</td>");
             }
 

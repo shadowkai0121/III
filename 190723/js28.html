@@ -1,0 +1,87 @@
+<script src="../tool.js"></script>
+<script>
+
+    // 定義
+    function sayYa() {
+        document.write('ya');
+        commutation();
+    }
+
+    // 呼叫函數
+    sayYa();
+    sayYa();
+
+    commutation("傳參數");
+
+    function sayYaV2(name) {
+        document.write(`Ya! ${name}.`);
+    }
+
+    sayYaV2('Kai');
+
+    commutation("參數預設值");
+
+    function sayYaV3(name = 'cy') {
+        document.write(`Ya! ${name}`);
+        commutation();
+    }
+
+    sayYaV3();
+    sayYaV3('kai');
+
+    commutation("多參數");
+
+    function sayYaV4(first, second) {
+        document.write(`Hey, ${first} and ${second}`);
+        commutation();
+    }
+
+    sayYaV4('kai', 'hime');
+
+    function sayYav5(people) {
+
+        if (people instanceof Array) {
+            document.write("Ya! ");
+
+            for (let name of people) {
+                document.write(name + " ");
+            }
+            commutation();
+        }
+
+    }
+
+    sayYav5(['kai', 'brad', 'hime', 'who']);
+
+    commutation("不定個數參數傳遞");
+
+    // 內部其實還是陣列
+    function sayYaV6(what, ...people) {
+        document.write(people instanceof Array);
+        commutation();
+
+        document.write(what);
+
+        for (let name of people) {
+            document.write(name + " ");
+        }
+        commutation();
+    }
+
+    sayYaV6('Hey!');
+    sayYaV6('Hey!', 'kai');
+    sayYaV6('Hello! ', 'kai', 'hime');
+
+    // f(x, y) = 2* x+ y;
+    let f = function (x, y) {
+        return 2 * x + y;
+    }
+
+    document.write(f(10, 3));
+    commutation();
+
+    let newF = f;
+    document.write(newF(50, 3));
+    commutation();
+
+</script>

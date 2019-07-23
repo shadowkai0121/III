@@ -1,0 +1,20 @@
+<script src="../tool.js"></script>
+1 + 2 + ... +
+<input id="val" type="text">
+<input type="button" value="=" onclick="start()">
+<span id="display"></span>
+
+<script>
+
+    function start() {
+        let max = parseInt(document.getElementById('val').value)
+        let sum = 0;
+        let cnt = 1;
+
+        while (cnt <= max) {
+            sum += cnt++;
+        }
+
+        document.getElementById('display').innerHTML = sum;
+    }
+</script>

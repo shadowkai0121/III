@@ -1,0 +1,36 @@
+<script src="../tool.js"></script>
+<script src="./jsUtil.js"></script>
+<script>
+    let id = 'b123456789';
+
+    // 字首 [A-Z]
+    // 第二個字 [1|2]
+    // 除了字首都是數字 
+    // 字母查表替換成對應數字
+    // n1*1 +n2*9 +n3*8...+n11*1
+
+    // 手機
+    let tel = /^09\d{2}\-\d{6}$/g;
+
+    function check(id) {
+        let ret = false;
+
+        // g = 完整搜尋
+        // i = 不分大小寫
+        let regex = /^[A-Z][12]\d{8}$/gi;
+
+        // if (parseInt(id[0]) || id[0] == 0) {
+        // }
+
+        if (regex.exec(id)) {
+            document.write("OK");
+
+        }
+        document.write('done');
+
+        return ret;
+    }
+
+    check(id);
+
+</script>
