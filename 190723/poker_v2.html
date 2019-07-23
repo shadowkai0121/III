@@ -1,7 +1,43 @@
 <script src="../tool.js"></script>
-<!-- 比較不噁心版 -->
+
+
+
 <script>
+    (function () {
+
+        let poker = [];
+        do {
+
+            let card = parseInt(Math.random() * 52);
+
+            if (!poker.includes(card)) {
+                poker.push(card);
+            }
 
 
+        } while (poker.length < 52);
 
+        document.write(poker);
+    }());
 </script>
+
+<!-- Teacher version -->
+<!-- <script>
+    let poker = [];
+    for (let i = 0; i < 52; i++) {
+        let isRepeat, rand;
+        do {
+            rand = parseInt(Math.random() * 52);
+
+            isRepeat = false;
+            for (let j = 0; j < i; i++) {
+                if (rand === poker[j]) {
+                    isRepeat = true;
+                    break;
+                }
+            }
+        } while (isRepeat);
+
+        poker[i] = rand;
+    }
+</script> -->

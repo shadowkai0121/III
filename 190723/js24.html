@@ -1,0 +1,26 @@
+<script src="../tool.js"></script>
+<script>
+
+    let a = [1, 2, 'III', 3, 4, 'Kai', 5, 'cy', 6];
+    a[10] = "ok";
+
+    for (let i = 0; i < a.length; i++) {
+        document.write(a[i]);
+        commutation();
+    }
+
+    commutation();
+    for (let i in a) {
+        document.write(a[i]);
+        commutation();
+    }
+
+    commutation("新東西");
+    for (let value of a) {
+        document.write(value);
+        commutation();
+    }
+
+
+
+</script>

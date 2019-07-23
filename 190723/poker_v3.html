@@ -1,0 +1,54 @@
+<script src="../tool.js"></script>
+<!-- 資工版 -->
+<script>
+
+    let poker = [];
+
+    // 建表
+    for (let i = 0; i < 52; i++) {
+        poker[i] = i;
+    }
+
+    // 洗牌
+    for (let i = poker.length - 1; i > 0; i--) {
+
+        let rnd = parseInt(Math.random() * (i + 1));
+        // poker[i] <=> poker[rnd];
+        [poker[i], poker[rnd]] = [poker[rnd], poker[i]];
+
+    }
+
+    // 驗證
+    document.write(poker);
+    commutation("單一玩家驗證");
+
+    // 發牌
+    let players = [[], [], [], []];
+    for (i = 0; i < poker.length; i++) {
+        players[i % 4].push(poker[i]);
+    }
+
+    document.write(players[0]);
+
+    commutation();
+
+</script>
+
+<table border="1" style="border-collapse: collapse;" width="100%">
+    <script>
+        commutation("輸出畫面");
+
+        for (let i in players) {
+            document.write("<tr>");
+            document.write(`<th>${parseInt(i) + 1} 號玩家</th>`);
+
+            for (let value of players[i]) {
+                document.write("<td>");
+                document.write(value);
+                document.write("</td>");
+            }
+
+            document.write("<tr>");
+        }
+    </script>
+</table>

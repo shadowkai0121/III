@@ -1,0 +1,37 @@
+<script src="../tool.js"></script>
+<script>
+    commutation("===數值交換===");
+
+    let a = 10, b = 3, c = a;
+    a = b;
+    b = c;
+    document.write(`a = ${a}; b = ${b}`);
+
+    commutation();
+
+    a = a + b;
+    b = a - b;
+    a = a - b;
+    document.write(`a = ${a}; b = ${b}`);
+
+    commutation();
+
+    [a, b] = [b, a];
+    document.write(`a = ${a}; b = ${b}`);
+
+    commutation("JS 專屬");
+    // ES6 
+
+    a = 94; b = 87; c = 945;
+    [a, b, c] = [b, c, a];
+    document.write(`a = ${a}; b = ${b}; c = ${c}`);
+
+    commutation("XOR");
+    // https://en.wikipedia.org/wiki/XOR_swap_algorithm
+
+    a = a ^ b;
+    b = b ^ a;
+    a = a ^ b;
+
+    document.write(`a = ${a}; b = ${b}`);
+</script>
