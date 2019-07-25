@@ -1,0 +1,58 @@
+<script src="../tool.js"></script>
+<script>
+    commutation('物件導向', '===');
+    commutation('吻合自然狀態');
+
+    // 建立物件
+    let bike = new Object();
+
+    commutation('腳踏車 = ' + typeof bike);
+
+    // 定義屬性
+    // 物件重要在屬性，不同的物件差別在屬性
+    // 會影響屬性的東西 = 功能
+
+    // 腳踏車的屬性
+    bike.speed = 0;
+    commutation('腳踏車的速度 = ' + bike.speed);
+    bike.gear = 1;
+    commutation('腳踏車的檔位 = ' + bike.speed);
+
+    // 腳踏車的功能
+    bike.speedUp = function () {
+        // this 代表本物件
+        this.speed = this.speed === 0 ? 1 : this.speed * 1.2 * this.gear;
+    }
+
+    bike.speedDown = function () {
+        this.speed = this.speed <= 0 ? 0 : this.speed * 0.7;
+    }
+
+    commutation('玩腳踏車', '=');
+    commutation('加速三次');
+    bike.speedUp();
+    bike.speedUp();
+    bike.speedUp();
+
+    commutation('腳踏車現在的速度 = ' + bike.speed);
+    commutation('煞車一次');
+    bike.speedDown();
+
+    commutation('腳踏車現在的速度 = ' + bike.speed);
+
+    commutation('物件實體語法 {}', '=======');
+    commutation('JSON = JavaScript 物件表示法');
+    let bike2 = {
+        // 物件的成員(屬性、方法)
+        speed: 0,
+        // 段數
+        gear: 1,
+        speedUp: function () {
+            this.speed = this.speed < 1 ? 1 : this.speed * gear * 1.2;
+        },
+        speedDown: function () {
+            this.speed = this.speed <= 0 ? 0 : this.speed * 0.7;
+        }
+    };
+
+</script>

@@ -1,0 +1,41 @@
+<!-- reset 重置 ? 重新開始 ? ??? 使用者視角  -->
+
+Timer: <span id="counter">0</span>
+<hr>
+<input type="button" value="Start" onclick="start()">
+<input type="button" value="Pause" onclick="pause()">
+<input type="button" value="Reset" onclick="reset()">
+
+<script>
+    let counter = 0;
+    let timer = null;
+    let isRunning = false;
+
+    function start() {
+        if (isRunning) {
+            return;
+        }
+
+        timer = setInterval(doThing, 1 * 1000);
+        isRunning = true;
+
+    }
+
+    function doThing() {
+        document.getElementById('counter').innerHTML = counter++;
+
+    }
+
+    function pause() {
+        if (isRunning) {
+            clearInterval(timer);
+        }
+    }
+
+    function reset() {
+        pause();
+        counter = 0;
+        document.getElementById('counter').innerHTML = counter;
+        isRunning = false;
+    }
+</script>

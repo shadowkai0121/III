@@ -42,12 +42,43 @@ function checkTWID(id) {
     return ret;
 }
 
-// 統一編號
-function checkTaxTWID(id) {
-    let ret = false;
-    const regex = /^\d{8}$/g;
+// 不重複取算亂數
+function createAnswer(n = 3) {
 
-    if (regex.exec(id)) {
+    let ret = '',
+        nums = [],
+        rnd = 0;
 
+    for (let i = 0; i < 10; i++) {
+        nums[i] = i;
     }
+
+    for (let i = nums.length - 1; i > 0; i--) {
+        rnd = parseInt(Math.random() * (i + 1));
+        [nums[i], nums[rnd]] = [nums[rnd], nums[i]];
+    }
+
+    for (let i = 0; i < n; i++) {
+        ret += nums[i];
+    }
+
+    return ret;
+}
+
+function checkAB(ans, gus) {
+    let a = 0,
+        b = 0;
+
+    for (let i = 0; i < gus.length; i++) {
+        if (ans[i] === gus[i]) {
+            a++;
+        }
+        else if (ans.indexOf(gus[i]) !== -1) {
+            b++;
+        }
+    }
+
+    // return '' + a + 'A' + b + 'B';
+    return `${a} A ${b} B`;
+
 }

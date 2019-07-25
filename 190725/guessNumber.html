@@ -1,0 +1,85 @@
+<!-- 1. 建立介面 -->
+<!-- 2. 產生不重複亂數 -->
+<!-- 3. 比對 AB -->
+<!-- 4. 驗證比對機制 -->
+<!-- 5. 增加使用者互動功能(過關訊息、答題次數、重置) -->
+
+<!-- 
+    HW:
+    頁面優化
+    更多的使用者互動(時間限制)
+-->
+<h1>Guess Number Game</h1>
+<hr>
+
+<input id="guess" type="text">
+<input id="reset" type="button" value="reset" onclick="reset()" hidden>
+<input type="button" value="Guess" onclick="doGuess()">
+<select id="times">
+    <option value="2">2</option>
+    <option value="3" selected>3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+</select>
+<hr>
+<div id="log">
+    遊戲開始！<br>
+    <!--
+        123 => 1A0B
+        456 => 1A2B
+    -->
+</div>
+
+
+<script src="../jsUtil.js"></script>
+<script>
+
+    let answer = createAnswer();
+    let limit = 0;
+    let d = document.getElementById('times').value;
+
+    console.log(d);
+    console.log(answer);
+
+    function doGuess(d) {
+
+        let log = document.getElementById('log'),
+            guess = document.getElementById('guess').value,
+            result = checkAB(answer, guess);
+
+        if (guess.length > d) {
+            alert(`${guess} : 請輸入 ${d} 位數字`)
+        }
+
+        if (result.indexOf('3') === 0) {
+            log.innerHTML += `正解!! ${guess} : ${result}<br>`;
+            document.getElementById('reset').hidden = false;
+            return;
+        }
+        else if (limit >= 10) {
+            log.innerHTML += '猜太多次了吧？<br>請按 reset 重來';
+            document.getElementById('reset').hidden = false;
+            return;
+        }
+
+        limit++;
+        log.innerHTML += `第 ${limit} 次  ${guess} : ${result}<br>`;
+
+        document.getElementById('guess').value = '';
+        document.getElementById('guess').focus();
+
+        if (limit >= 10) {
+            log.innerHTML += '猜太多次了吧？<br>請按 reset 重來';
+            document.getElementById('reset').hidden = false;
+        }
+    }
+
+    function reset() {
+        document.getElementById('log').innerHTML = '遊戲開始！<br>';
+        answer = createAnswer();
+        document.getElementById('guess').focus();
+        document.getElementById('reset').hidden = true;
+        limit = 0;
+    }
+
+</script>
