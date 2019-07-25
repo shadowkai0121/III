@@ -1,0 +1,29 @@
+<script src="../tool.js"></script>
+<script>
+
+    let person = {
+        name: 'kai',
+        age: 18,
+        getInfo: function () {
+            return this.name + ', ' + this.age;
+        }
+    }
+
+    commutation(person.getInfo());
+
+    let peter = {
+        name: 'peter',
+        age: 30
+    }
+
+    let tony = {
+        name: 'tony',
+        age: 40
+    }
+
+    let peterInfo = person.getInfo.call(peter);
+    commutation(peterInfo);
+
+    let tonyInfo = person.getInfo.call(tony);
+    commutation(tonyInfo);
+</script>

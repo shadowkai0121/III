@@ -1,0 +1,25 @@
+<script src="../tool.js"></script>
+<script>
+
+    commutation('陣列作為物件使用', '======');
+    // js 陣列比較接近 "Map" (映射) 的資料結構
+    let a = [];
+    a['name'] = 'kai';
+    a['age'] = '82';
+    commutation(a['name'] + ' : ' + a['age']);
+
+    a.push(123);
+    a.push({ componey: 'cy' });
+    for (let key in a) {
+        commutation(`a[${key}] = ${a[key]}`);
+    }
+
+    commutation();
+
+    a['eat'] = function () {
+        commutation(this.name + ' eat something.');
+    }
+
+    a.eat();
+
+</script>

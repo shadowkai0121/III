@@ -1,0 +1,21 @@
+<div id="myTxt">
+    Hello, World.
+</div>
+<hr>
+<select name="" id="" onchange="move(this.value)">
+    <option value="left" selected>left</option>
+    <option value="center">center</option>
+    <option value="right">right</option>
+</select>
+
+<script>
+    function test() {
+
+    }
+
+    function move(pos) {
+        document.getElementById('myTxt').style.textAlign = pos;
+    }
+
+
+</script>

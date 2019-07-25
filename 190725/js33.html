@@ -48,11 +48,42 @@
         // 段數
         gear: 1,
         speedUp: function () {
-            this.speed = this.speed < 1 ? 1 : this.speed * gear * 1.2;
+            this.speed = this.speed < 1 ? 1 : this.speed * this.gear * 1.2;
         },
         speedDown: function () {
             this.speed = this.speed <= 0 ? 0 : this.speed * 0.7;
         }
     };
+
+    commutation('玩第二台車', '===');
+    commutation('目前速度 = ' + bike2.speed);
+    bike2.speedUp();
+    bike2.speedUp();
+    bike2.speedUp();
+    commutation('目前速度 = ' + bike2.speed);
+
+    // 將物件當作陣列使用
+    bike2['speedUp']();
+    commutation('目前速度 = ' + bike2.speed);
+
+    let method = 'speedUp';
+    bike2[method]();
+    commutation('目前速度 = ' + bike2['speed']);
+
+    commutation('使用 for 查詢物件內容', '======');
+    for (let key in bike2) {
+        commutation(key + ' => ' + bike2[key]);
+    }
+
+    commutation('查詢內建的物件', '======');
+
+    // 物件可以擁有另一個物件
+    // for (let key in document) {
+    //     commutation(`document.${key} =>` + document[key]);
+    // }
+
+    for (let key in window) {
+        commutation(`window.${key} => ` + window[key]);
+    }
 
 </script>

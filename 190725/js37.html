@@ -1,0 +1,42 @@
+<script src="../tool.js"></script>
+<script>
+
+    let body = document.createElement('body');
+    // 新創 body 會將 h1 移除
+    document.body = body;
+
+    let header = document.createElement('h1');
+    let h1text = document.createTextNode('Hello, world.');
+    header.appendChild(h1text);
+
+    let hr = document.createElement('hr');
+
+
+    document.body.appendChild(header);
+
+    document.body.appendChild(hr);
+
+    let ul = document.createElement('ul');
+
+    let rItem;
+    for (let i = 0; i < 4; i++) {
+        let li = document.createElement('li');
+        li.innerHTML = 'item ' + i;
+        ul.append(li);
+
+        if (i == 2) {
+            rItem = li;
+        }
+    }
+    ul.removeChild(rItem);
+
+    document.body.appendChild(ul);
+
+    let hr2 = hr.cloneNode();
+    document.body.appendChild(hr2);// 只會複製基本屬性
+
+    let ul2 = ul.cloneNode();
+    document.body.appendChild(ul2);
+
+</script>
+<!-- <h1>Hello, World.</h1> -->

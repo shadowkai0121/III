@@ -1,0 +1,27 @@
+<script>
+    let body = document.createElement('body');
+    document.body = body;
+
+    let header = document.createElement('h1');
+    header.innerHTML = 'CY Super Big Company';
+    body.appendChild(header);
+
+
+    let table = document.createElement('table');
+    table.setAttribute('border', '1');
+    table.setAttribute('width', '100%');
+
+    for (let j = 1; j <= 9; j++) {
+        let tr = document.createElement('tr');
+
+        for (let i = 1; i <= 9; i++) {
+            let td = document.createElement('td');
+            td.innerHTML = j * i;
+            tr.appendChild(td);
+        }
+
+        table.appendChild(tr);
+    }
+
+    document.body.append(table); 
+</script>
