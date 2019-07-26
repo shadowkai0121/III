@@ -1,0 +1,25 @@
+<script src="../tool.js"></script>
+<script>
+
+    let bike = function () {
+        commutation("bike constructor invoked.");
+        this.a = 12;
+        this.b = 34;
+    }
+
+    let b1 = new bike();
+    commutation(b1.x);
+    bike.prototype.x = "bike's new property";
+    commutation(b1.x);
+
+    bike.prototype.b = 222;
+    commutation("bike.prototype.b = 222, b1.b = " + b1.b);
+
+    let b2 = new bike();
+    b2.a = "b2a";
+    b2.c = "b2c";
+    commutation(`b2(a, b, c, x) = ${b2.a}, ${b2.c}, ${b2.c}, ${b2.x}`);
+
+
+
+</script>

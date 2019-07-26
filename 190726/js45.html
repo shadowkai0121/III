@@ -1,0 +1,20 @@
+<script src="../tool.js"></script>
+<script>
+    commutation("物件", "=======");
+
+    let f = function () {
+        this.a = 1;
+        this.b = 2;
+    }
+
+    let obj = new f();
+    commutation(typeof obj);
+    commutation(`obj(a, b) = ${obj.a}, ${obj.b}`);
+
+    f.prototype.b = 100;
+    f.prototype.c = "new property"
+    commutation(`obj(a, b, c) = ${obj.a}, ${obj.b}, ${obj.c}`);
+
+
+
+</script>

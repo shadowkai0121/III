@@ -1,0 +1,94 @@
+<canvas id="canvas" style="border: 1px solid black"></canvas>
+<script>
+    canvas.width = 480;
+    canvas.height = 320;
+    let ctx = canvas.getContext("2d");
+
+
+    let bgImg = new Image(),
+        bgReady = false;
+    bgImg.src = "bg.jpg";
+    bgImg.onload = function () {
+        console.log("bg loaded");
+        ctx.drawImage(bgImg, 0, 0);
+        bgReady = true;
+    }
+
+    let ball1 = new Image(),
+        ball2 = new Image(),
+        ball3 = new Image();
+    ball1.src = "ball1.png";
+    ball2.src = "ball2.png";
+    ball3.src = "ball3.png";
+    let ballImg = [ball1, ball2, ball3];
+
+    ballImg.onload = function () {
+        console.log('ballImage loaded');
+        ballReady = true;
+    }
+
+    // 建立 ball 物件
+    let balls = [];
+    function Ball(x = 0, y = 0, img = 0) {
+        this.x = x;
+        this.y = y;
+        this.dx = 8;
+        this.dy = 8;
+        this.img = img;
+    }
+
+    function move(ball) {
+        let nextX = ball.x + ball.dx,
+            nextY = ball.y + ball.dy;
+
+        if (nextX + 48 >= canvas.width || nextX <= 0) {
+            ball.dx *= -1;
+        }
+        if (nextY + 48 >= canvas.height || nextY <= 0) {
+            ball.dy *= -1;
+        }
+
+        ball.x = nextX;
+        ball.y = nextY;
+    }
+
+    function go() {
+        for (let ball of balls) {
+            move(ball);
+        }
+    }
+    setInterval(go, 1000 / 60);
+
+    canvas.onmousedown = function (e) {
+        console.log("document clicked");
+        let ball = new Ball();
+        ball.x = e.offsetX - 24;
+        ball.y = e.offsetY - 24;
+        ball.dx = Math.random() * 20 + 5;
+        ball.dx = Math.random() * 20 + 5;
+        ball.img = parseInt(Math.random() * ballImg.length);
+        balls.push(ball);
+    }
+
+    function refresh() {
+        if (bgReady) {
+            reset();
+            ctx.drawImage(bgImg, 0, 0);
+        }
+
+        for (let ball of balls) {
+            ctx.translate(-48, -48);
+            ctx.rotate(0.5);
+            ctx.drawImage(ballImg[ball.img], ball.x, ball.y);
+            ctx.rotate(-0.5);
+            ctx.translate(48, 48);
+        }
+    }
+    // 畫面主要輸出來源
+    setInterval(refresh, 1000 / 60);
+
+    function reset() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+</script>

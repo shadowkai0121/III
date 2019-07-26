@@ -82,3 +82,21 @@ function checkAB(ans, gus) {
     return `${a} A ${b} B`;
 
 }
+
+function clone(src) {
+    if (src === null || typeof (src) != "object") {
+        return null;
+    }
+
+    let target = new Object();
+    for (let attr in src) {
+        if (typeof (src[attr]) != "object") {
+            target[attr] = src[attr];
+        }
+        else {
+            target[attr] = clone(src[attr]);
+        }
+    }
+
+    return target;
+}
