@@ -9,4 +9,8 @@ $result = $a + $b; // 46
 
 echo $result;
 
-?>
+$x = 10;
+$y = 20;
+
+echo $x . $y;
+// 1020
