@@ -1,0 +1,30 @@
+<script src="../tool.js"></script>
+<script>
+
+    let a = 12.3;
+    // 天花板
+    commutation(Math.ceil(a));
+    // 四捨五入
+    commutation(Math.round(a));
+    commutation(Math.round(a + 0.5));
+    // 地板
+    commutation(Math.floor(a));
+    commutation(Math.ceil(-1 * a));
+    commutation(Math.round(-1 * a));
+    commutation(Math.floor(-1 * a));
+
+    commutation(navigator.appName);
+
+    function test() {
+        window.open("", "Page Name", "Width=480, height=320");
+    }
+
+    /*
+        # 前端做不到的
+        - Server file System
+        - Sql Server
+
+    */
+</script>
+
+<button onclick="test()">windowOpen</button>

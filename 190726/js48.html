@@ -1,0 +1,48 @@
+<script src="../tool.js"></script>
+<script>
+
+    let bike = function (name, speed) {
+        this.name = name;
+        this.speed = speed;
+        // 此處的權重比原型鍊上的高
+        // 不影響物件複寫
+        this.changeSpeed = function (speed) {
+            commutation("speed change in constructor");
+        }
+    }
+
+    bike.changeSpeed = function (speed) {
+        commutation("bike change speed");
+    }
+
+    bike.prototype = {
+        changeSpeed: function (speed) {
+            this.speed = speed;
+            commutation(this.name + "'s bike is changed speed : " + this.speed);
+        }
+    }
+
+    commutation("b1", "===");
+    let b1 = new bike("Brad", 12);
+
+    for (let key in b1) {
+        commutation(`b1[${key}] = ${b1[key]}`);
+    }
+
+    b1.changeSpeed = function (speed) {
+        commutation("b1 is changed speed");
+    }
+
+    b1.changeSpeed(200);
+    b1.chSpeed(100);
+
+    commutation("b2", "===");
+
+    let b2 = new bike("Kai");
+    b2.changeSpeed(999);
+    b2.chSpeed(100);
+
+
+
+
+</script>

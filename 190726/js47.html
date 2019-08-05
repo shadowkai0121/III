@@ -1,0 +1,59 @@
+<script src="../tool.js"></script>
+<script src="../jsUtil.js"></script>
+<script>
+
+    let bike = {
+        a: 11,
+        b: 22,
+        m1: function () {
+            commutation("bike:m1():" + this.a);
+        }
+    }
+
+    let person = {
+        name: "nobody",
+        myBike: Object.create(bike)
+    }
+
+    commutation("use Object.create()", "===");
+
+    let b1 = Object.create(bike);
+
+    for (let key in b1) {
+        commutation(`b1[${key}] = ${b1[key]}`);
+    }
+
+    commutation("use constructor", "===");
+
+    let b2 = bike.constructor();// new Object();
+    commutation("typeof b2 = " + typeof b2);
+
+    commutation("use clone", "===")
+    let b3 = clone(bike);
+
+    for (let key in b3) {
+        commutation(`b3[${key}] = ${b3[key]}`);
+    }
+
+    commutation("p1", "===");
+
+    let p1 = Object.create(person);
+    p1.name = "Brad";
+    p1.myBike.a = 100;
+    commutation("p1.name = " + p1.name + ", p1.myBike.a = " + p1.myBike.a);
+
+    for (let key in p1) {
+        commutation(`p1[${key}] = ${p1[key]}`);
+    }
+
+    p1.myBike.m1();
+
+    commutation("p2", "===");
+    let p2 = clone(person);
+    p2.name = "Kai";
+    p2.myBike.a = 200;
+    commutation("p2.name = " + p2.name + ", p2.myBike.a = " + p2.myBike.a);
+
+    p2.myBike.m1();
+
+</script>

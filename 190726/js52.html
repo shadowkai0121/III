@@ -1,0 +1,88 @@
+<script src="../tool.js"></script>
+<script>
+
+    class Bike {
+        constructor(speed) {
+            this.speed = speed;
+            this.brand = "";
+            commutation("Bike constructed");
+        }
+
+        upSpeed() {
+            commutation("Bike Speed up");
+        }
+
+        stop() {
+            commutation("Bike Stop");
+        }
+    }
+
+    let b1 = new Bike(123);
+    b1.upSpeed();
+    commutation(`b1 speed = ${b1.speed}`);
+    commutation("b1 is Bike? " + (b1 instanceof Bike));
+
+    commutation("繼承", "===");
+
+    // 繼承是觀念 用擴充表現
+    class Scooter extends Bike {
+
+        constructor(speed, gear) {
+            super(speed);
+            commutation("Scotter constructed");
+        }
+
+        changeGear(gear) {
+            commutation("Scooter gear is changed");
+            this.gear = gear;
+        }
+
+        // 複寫父類別方法
+        // 將父類別方法進行改良
+        upSpeed(speed) {
+            // 保留父類別方法
+            super.upSpeed();
+
+            commutation("Scooter speed up");
+        }
+    }
+
+    let s1 = new Scooter(234, 245);
+    commutation("s1 speed = " + s1.speed);
+    s1.changeGear(100);
+    s1.upSpeed();
+    commutation("s1 is Bike ?" + (s1 instanceof Bike));
+    commutation("b1 is Scotter? " + (b1 instanceof Scooter));
+
+    class Test {
+
+        constructor(...x) {
+            commutation("Test constructed = " + x);
+            this.args = "args";
+        }
+
+        // 靜態方法
+        static m1() {
+            // 還沒有產生物件實體，無法呼叫 args 與 m2
+            commutation("m1 is invoked with args " + this.args);
+            m2();
+        }
+
+        m2() {
+            commutation("Here is m2");
+        }
+    }
+
+    let test1 = new Test(1);
+    let test2 = new Test(1, 2);
+    let test3 = new Test(1, 2, 3, 4);
+
+    Test.m1();
+
+    commutation("static 無法繼承", "===");
+    class Exam extends Test {
+
+    }
+
+    Exam.m1();
+</script>

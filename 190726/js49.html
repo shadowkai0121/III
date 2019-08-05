@@ -1,0 +1,31 @@
+<h1 id="display"></h1>
+<script src="../tool.js"></script>
+<script>
+    Date.prototype.getTWYear = function () {
+        return this.getFullYear() - 1911;
+    }
+    Date.prototype.getEastMonth = function () {
+        return this.getMonth() + 1;
+    }
+    Date.prototype.getCWeek = function () {
+        let ws = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+        return ws[this.getDay()];
+    }
+    Date.prototype.getHMS = function () {
+        return this.getHours() + " 時 " + this.getMinutes() + " 分 " + this.getSeconds() + " 秒"
+    }
+
+    setInterval(function () {
+        let date = new Date();
+        display.innerHTML =
+            "民國 " + date.getTWYear() + " 年 " +
+            // 從零開始
+            date.getEastMonth() + " 月 " +
+            date.getDate() + " 日 " +
+            date.getCWeek() + " " +
+            date.getHMS();
+        console.log("done");
+    }, 1000);
+
+
+</script>

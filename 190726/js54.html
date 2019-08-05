@@ -1,0 +1,27 @@
+<script src="../tool.js"></script>
+<script>
+
+    let xhttp = new XMLHttpRequest();
+
+    /*
+        http 全部都是明碼 !
+        只有檔案上傳必須使用 POST
+        http status 3xx 通常是訊息傳遞
+    */
+    function sendGET() {
+        console.log("btn click")
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console("response get");
+                document.getElementById("demo").innerHTML = this.responseText;
+            }
+        };
+        xhttp.open("GET", "http://10.0.105.88/brad01.php", true);
+        xhttp.send();
+        console.log("send request");
+    }
+
+</script>
+
+<input type="button" value="click" onclick="sendGET()">
+<div id="demo"></div>

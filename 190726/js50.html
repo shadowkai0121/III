@@ -1,0 +1,38 @@
+<script src="../tool.js"></script>
+<script src="../jsUtil.js"></script>
+<script>
+
+    let person = {
+        name: "Kai",
+        age: 100,
+        weight: 10,
+        bike: [{
+            brand: "Giant",
+            speed: 10,
+            speedUp: function () {
+                commutation(this.brand + "'s speed up");
+            }
+        }, {
+            brand: "Ubike",
+            speed: 20,
+            speedUp: function () {
+                commutation(this.brand + "'s speed up");
+            }
+        }],
+        eat: function () {
+            commutation("吃飯中");
+        }
+    }
+
+    let json = JSON.stringify(person);
+    commutation(json);
+
+    let newPerson = JSON.parse(json);
+    for (let item in newPerson) {
+        commutation(`item[${item}] = ${newPerson[item]}`);
+    }
+
+    commutation("clone", "===");
+    let person2 = clone(person);
+    person2.eat();
+</script>

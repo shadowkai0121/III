@@ -1,0 +1,41 @@
+<h1 id="txt1">AJAX</h1>
+<div id="container">
+
+    <h3>Line 1</h3>
+    <p> p1 </p>
+    <h6 class="cls1"> line 2</h6>
+    <p> p2 </p>
+    <p class="cls1"> p3 </p>
+
+    <button id="send">Send</button>
+</div>
+<p>out p</p>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+<script>
+
+
+    $("#send").click(() => {
+        $("#txt1").text("Hello");
+        $("p").css("color", "red");
+        $(".cls1").css("background-color", "yellow");
+        $("#container p").css("font-size", "2em");
+
+        $.ajax({
+            url: "http://10.0.105.88/brad01.php",
+            method: "GET",
+            success: function (res) {
+                console.log(res);
+            }
+        });
+    });
+
+    let ps = $('p')
+    for (let p of ps) {
+        p.style.color = "blue";
+    }
+
+    $obj = $(container);
+
+    $obj.css("background-color", "pink");
+
+</script>
