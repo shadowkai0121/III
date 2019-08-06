@@ -1,26 +1,27 @@
 <?php
-if (isset ( $_POST ["btnOK"] )) {
-	processFile ( $_FILES ["file1"] );
+if (isset($_POST["btnOK"])) {
+    processFile($_FILES["file1"]);
 }
-function processFile($objFile) {
-	if ($objFile ["error"] != 0) {
-		echo "Upload Fail! ";
-		echo "<a href='javascript:window.history.back();'>Back</a>";
-		return;
-	}
-	
-	$test = move_uploaded_file ( $objFile ["tmp_name"], "./" . $objFile ["name"] );
-	if (! $test) {
-		die ( "move_uploaded_file() faile" );
-	}
-	
-	echo "File uploaded<br />";
-	echo "File name: " . $objFile ["name"] . "<br />";
-	echo "File type: " . $objFile ["type"] . "<br />";
-	echo "File size: " . $objFile ["size"] . "<br />";
-	
-	echo "--  Done --";
-	exit ();
+function processFile($objFile)
+{
+    if ($objFile["error"] != 0) {
+        echo $objFile["error"] . "<br>";
+        echo "Upload Fail! ";
+        echo "<a href='javascript:window.history.back();'>Back</a>";
+        return;
+    }
+
+    $test = move_uploaded_file($objFile["tmp_name"], "./" . $objFile["name"]);
+    if (!$test) {
+        die("move_uploaded_file() faile");
+    }
+
+    foreach ($objFile as $key => $value) {
+        echo "$key: $value<br>";
+    }
+
+    echo "--  Done --";
+    exit();
 }
 
 ?>

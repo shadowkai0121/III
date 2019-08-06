@@ -1,7 +1,7 @@
 <?php
 
-$fileDir = dirname ( __FILE__ );
-$fileResource = opendir ( $fileDir );
+$fileDir = dirname(__FILE__);
+$fileResource = opendir($fileDir);
 
 ?>
 <!DOCTYPE html>
@@ -14,11 +14,17 @@ $fileResource = opendir ( $fileDir );
 
 	<p>File list:</p>
 	<ul>
-	<?php while ($item = readdir($fileResource)) : ?>
+	<?php while ($item = readdir($fileResource)): ?>
 		<li><?php echo $item; ?></li>
-	<?php endwhile; ?>
+	<?php endwhile;?>
 	</ul>
 
-<?php closedir($fileResource); ?>
+	<ul>
+	<?php for ($i = 1; $i <= 3; $i++) {?>
+		<li><?=$i?></li>
+	<?php }?>
+	</ul>
+
+<?php closedir($fileResource);?>
 </body>
 </html>
