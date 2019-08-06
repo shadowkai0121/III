@@ -1,0 +1,1 @@
+localStorage.setItem("page", window.location.href);
