@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -111,36 +111,20 @@
         <!--end 購物車-->
 
         <!--start content -->
-        <div class="container-login100">
-            <div class="wrap-login100">
-                <div class="login100-form-title" style="background-image: url(../img/login_signup/login_signup.jpg);">
-    
-                    <span class="login100-form-title-1">
-                        會員登入
-                    </span>
-                </div>
-    
-                <div class="login100-form validate-form">
-                    <div class="wrap-input100 validate-input m-b-26" data-validate="請輸入帳號">
-                        <span class="label-input100">會員帳號</span>
-                        <input class="input100" type="text" name="UserID" placeholder="請輸入帳號">
-                        <span class="focus-input100"></span>
-                    </div>
-    
-                    <div class="wrap-input100 validate-input m-b-50" data-validate="請輸入密碼">
-                        <span class="label-input100">會員密碼</span>
-                        <input class="input100" type="password" name="UserPwd" placeholder="請輸入密碼">
-                        <span class="focus-input100"></span>
-                    </div>
-                    <div class="container-login100-form-btn">
-                        <a href="register.html" class="btn btn-success login100-form-btn">
-                            登入
-                        </a>
-                        <a href="register.html" class="btn btn-info login100-form-btn m-l-20">註冊</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?php
+        
+        switch (isset($_GET['page'])) {
+            case 'menu':
+            break;
+            case 'member':
+            break;
+            case 'newMember':
+            break;
+            default:
+            break;
+        }
+        
+        ?>
         <!--end content-->
         <!--必要! 為了把footer置底用-->
         <div class="push"></div>
