@@ -54,7 +54,6 @@ DB_PASSWORD=
 
     php artisan make:model Employee -m
 
-
 2.3 檢視下列兩個檔案的內容:
     database\migrations\yyyy_mm_dd_time_create_employees_table.php
     app\Employee.php
@@ -77,10 +76,8 @@ DB_PASSWORD=
 2.5 在終端機視窗執行下列指令:
     php artisan migrate
 
-
 2.6 以 PhpMyAdmin 之類的工具，
     確認 test 資料庫有 employees 資料表
-
 
 2.7 在終端機視窗輸入下列指令以啟動 tinker 工具程式:
     php artisan tinker
@@ -112,7 +109,6 @@ exit
 
 
 3.  條列員工清單
-
 
 3.1 編輯 routes\web.php，
     將最後一段 Route::get 的程式改成:
@@ -195,7 +191,7 @@ Route::resource('employees', 'EmployeesController');
             </span>
         </td>
     </tr>
-
+    
     <tr>
         <td>firstName3</td>
         <td>lastName3</td>
@@ -234,7 +230,7 @@ php artisan serve
     將 tbody 的內容改成:
 
     <tbody>
-
+    
     @foreach ($employeeList as $emp)
     <tr>
         <td>{{$emp->firstName}}</td>
@@ -251,7 +247,7 @@ php artisan serve
         </td>
     </tr>
     @endforeach
-
+    
     </tbody>
 
 
@@ -303,7 +299,7 @@ php artisan serve
   <label class="col-md-4 control-label" for="firstName">First Name:</label>  
   <div class="col-md-4">
   <input id="firstName" name="firstName" type="text" placeholder="" class="form-control input-md">
-    
+
   </div>
 </div>
 
@@ -312,7 +308,7 @@ php artisan serve
   <label class="col-md-4 control-label" for="lastName">Last Name:</label>  
   <div class="col-md-4">
   <input id="lastName" name="lastName" type="text" placeholder="" class="form-control input-md">
-    
+
   </div>
 </div>
 
@@ -413,7 +409,7 @@ php artisan serve
   <label class="col-md-4 control-label" for="firstName">First Name:</label>  
   <div class="col-md-4">
   <input id="firstName" name="firstName" type="text" placeholder="" class="form-control input-md">
-    
+
   </div>
 </div>
 
@@ -422,7 +418,7 @@ php artisan serve
   <label class="col-md-4 control-label" for="lastName">Last Name:</label>  
   <div class="col-md-4">
   <input id="lastName" name="lastName" type="text" placeholder="" class="form-control input-md">
-    
+
   </div>
 </div>
 
