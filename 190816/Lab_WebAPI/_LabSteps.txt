@@ -4,6 +4,7 @@ Lab: 以 Node.js 建構 Web API
 1.  執行下列 SQL Script 以建立本次練習所需的資料庫。
 
 
+drop database if exists labDB;
 create database labDB default character set utf8;
 use labDB;
 create table news
