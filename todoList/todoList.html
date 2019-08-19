@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel='stylesheet'
+        href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css' />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css' />
+
+    <style>
+        body {
+            background-color: #00000050;
+        }
+
+        .todoListItem {
+            transition: all 1s;
+            margin: 0.25em;
+            border: 1px solid rgb(68, 66, 66);
+        }
+
+        .todoList-leave-active {
+            position: absolute;
+        }
+    </style>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
+</head>
+
+<body>
+
+    <div id="todoListApp" class="container">
+
+        <div class="row">
+
+            <div class="col-md-8 offset-md-2">
+                <div class="card  mt-5">
+                    <div class="card-body">
+                        <h1 class="card-title text-center pt-5">
+                            Todo List
+                        </h1>
+                        <button @click='add' class="btn btn-danger float-right">New Work</button>
+                    </div>
+
+                    <list :items='items'></list>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script type="text/x-template" id="listTemplate">
+        <div class="list-group pb-5 px-3">
+            <transition-group name="" appear-active-class="animated tada"
+                leave-active-class="todoList-leave-active animated hinge">
+
+                <div v-for="item, index in items" v-bind:key="item" class="todoListItem list-group-item">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <a href="#" class="list-group-item-action">{{ item.title }}</a>
+                            <footer class="blockquote-footer">{{ item.dateTime }}</footer>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="btn-group float-right mt-1">
+                                <button @click='edit(index)' class="btn btn-outline-primary">Edit</button>
+                                <button @click='remove(index)'
+                                    class="btn btn-outline-secondary">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </transition-group>
+        </div>
+    </script>
+
+
+    <script>
+        Vue.component('list', {
+            template: '#listTemplate',
+            props: ['items'],
+            methods: {
+                remove: function (idx) {
+                    this.items.splice(idx, 1)
+                },
+                edit: function (idx) {
+                }
+            }
+        });
+
+        let todoList = new Vue({
+            el: '#todoListApp',
+            data: {
+                items: [
+                    {
+                        title: 'Ut fugiat et id excepteur officia Lorem culpa consectetur',
+                        dateTime: '2019-08-19'
+                    },
+                    {
+                        title: 'Pariatur sunt cupidatat ex incididunt.',
+                        dateTime: '2019-08-19'
+                    },
+                    {
+                        title: 'Consectetur culpa eu occaecat id incididunt non et.',
+                        dateTime: '2019-08-19'
+                    },
+                ],
+                nextNum: 10
+            },
+            methods: {
+                add: function () {
+                    this.items.splice(0, 0, this.nextNum++)
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>
