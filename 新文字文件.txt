@@ -1,0 +1,39 @@
+You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '; -- ','2019-08-21 11:24:16')' at line 1
+
+
+
+:speech_balloon:  (  :speech_balloon: account =  'account '; ​ ​ ​ ​ :question: -- , '2019-08-21 11:24:16');
+
+
+
+
+
+UPDATE admin_member(login_date) VALUES (now()) WHERE account = 'account';
+
+
+
+UPDATE admin_member SET login_date = 'date string' WHERE account = 'account';
+
+
+
+
+
+---
+
+INSERT INTO :speech_balloon: (account, login_date) VALUES ('account', '1000-10-10');
+
+:ballot_box: SELECT * FROM admin_member WHERE account='', password='';
+
+---
+
+
+
+https://www.huntcoco.com/adminrc/adminac_login1.php 
+
+
+
+```php
+Fatal error: require_once(): Failed opening required 'Connections/hunter.php' (include_path='.:/www/server/php/56/lib/php') in /www/wwwroot/huntcoco.com/adminrc/adminac_login.php on line 2
+```
+
+https://www.huntcoco.com/Connections/hunter.php 

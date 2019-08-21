@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+  <form id="app" class="form-horizontal" method="POST" action="echo.php">
+    <fieldset>
+
+      <!-- Form Name -->
+      <legend>Lab Form</legend>
+
+      <!-- Select Basic -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="city">城市:</label>
+        <div class="col-md-4">
+          <input type="text" name="cityName" :value="selected.cityName" hidden>
+
+          <select v-model="selected" name="cityID" class="form-control">
+            <option v-for="city in cityList" :value="city">{{ city.cityName }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <h3>id:&nbsp;{{ selected.cityID }}</h3>
+      <h3>name:&nbsp;{{ selected.cityName }}</h3>
+    </fieldset>
+  </form>
+
+
+  <script>
+
+    new Vue({
+      el: "#app",
+      data: {
+        selected: { cityName: "Taichung", cityID: 4 },
+        cityList: [
+          { cityName: "Taipei", cityID: 2 },
+          { cityName: "Taichung", cityID: 4 },
+          { cityName: "Tainan", cityID: 6 },
+        ]
+      },
+    });
+
+
+  </script>
+
+</body>
+
+</html>

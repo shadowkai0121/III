@@ -223,7 +223,7 @@
                         let data = JSON.stringify(this.newsDetail);
                         $.ajax({
                             method: 'POST',
-                            url: '/home/news',
+                            url: '/home/post',
                             contentType: 'application/json',
                             data: data,
                             success: function (res) {

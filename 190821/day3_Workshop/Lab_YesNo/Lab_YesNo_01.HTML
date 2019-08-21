@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container" id="lab">
+
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="page-header">
+                    <h1>無所不問、無所不答</h1>
+                </div>
+            </div>
+        </div>
+
+        <form class="form-horizontal">
+            <fieldset>
+                <!-- Text input-->
+                <div class="form-group">
+                    <label class="col-md-4 control-label">請輸入問題:</label>
+                    <div class="col-md-4">
+                        <input v-model="question" type="text" placeholder="" class="form-control input-md">
+                        <span class="help-block">問題請以問號結尾</span>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+        <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <h2>{{ answer }}</h2>
+                <img :src="image">
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        new Vue({
+            el: "#lab",
+            data: {
+                question: "",
+                answer: "",
+                image: ""
+            },
+            watch: {
+                question() {
+                    if (this.question &&
+                        this.question.indexOf("?") === (this.question.length - 1)
+                    ) {
+                        let self = this;
+                        axios.get("https://yesno.wtf/api")
+                            .then(res => {
+                                self.answer = res.data.answer;
+                                self.image = res.data.image;
+                            });
+
+                    }
+                }
+            },
+        })
+
+    </script>
+
+</body>
+
+</html>
